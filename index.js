@@ -13,7 +13,7 @@ app.use(require('./routes/estudiantes'));
 app.use(require('./routes/security'));
 
 app.get('/', (req,res) =>{
-    res.status(200).send('login');  
+    res.status(200).send('index.js');  
 } )
 
 app.listen(app.get('port'), () => {
