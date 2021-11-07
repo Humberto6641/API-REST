@@ -5,7 +5,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4200);
 
 app.use(require('./routes/personas'));
 app.use(require('./routes/maestros'));
@@ -13,7 +13,7 @@ app.use(require('./routes/estudiantes'));
 app.use(require('./routes/security'));
 
 app.get('/', (req,res) =>{
-    res.status(200).send('index');  
+    res.status(200).send('login');  
 } )
 
 app.listen(app.get('port'), () => {
