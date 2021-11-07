@@ -19,6 +19,3 @@ app.get('/', (req,res) =>{
 app.listen(app.get('port'), () => {
     console.log(`Server en puerto ${app.get('port')}`);
 });
-/*https://secure-ocean-51892.herokuapp.com/*/
-/*https://git.heroku.com/secure-ocean-51892.git*/
-/*https://github.com/RonaldRuano/P2-REST-API*/
