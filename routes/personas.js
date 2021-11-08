@@ -6,7 +6,7 @@ const mysqlConnection = require('../configurations/db-conf');
 
 /*PERSONAS*/
 
-router.get('/personas',security,(req,res)=>{
+router.get('/personas',(req,res)=>{
     console.log('get lista personas')
     mysqlConnection.query('Select * from persona',(err,rows,fields)=>{
         if(!err){
