@@ -7,17 +7,17 @@ const jwt = require('jsonwebtoken');
 //Visualizar Personas
 router.post("/login", (req, res) => {
     const body = req.body;
-    console.log(body.nombre);
-    let user;           
+    console.log(body.userName);
+    let _usuario;           
 
-    mysqlConnection.query("select * from usuario where nombre = " , body.nombre, (err, rows, field) => {
+    mysqlConnection.query("select * from usuario where nombre = ?" , body.userName, (err, rows, field) => {
         if (!err) {
-            user = rows[0];
+            _usuario = rows[0];
             if (user === undefined) {
                 return res.status(401).send('Usuario no Existe');
             }
-            if (body.contrasena === user.contrasena) {
-                const token = jwt.sign({_id: user.id }, 'secret', { expiresIn: '10m' });
+            if (body.password === _usuario.password) {
+                const token = jwt.sign({_id: _usuario.id }, 'secret', { expiresIn: '10m' });
                 return res.status(200).json({token});
             } else {
                 return res.status(401).send('Invalido');
