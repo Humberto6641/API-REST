@@ -7,10 +7,10 @@ const jwt = require('jsonwebtoken');
 //Visualizar Personas
 router.post("/login", (req, res) => {
     const body = req.body;
-    console.log(body.userName); // nombre
+    console.log(body.user); // nombre
     let user;    //user       
 
-    mysqlConnection.query("select * from usuario where nombre = ?" , body.userName, (err, rows, field) => {
+    mysqlConnection.query("select * from usuario where nombre = ?" , body.user, (err, rows, field) => {
         if (!err) {
             user = rows[0];
             if ( user === undefined) {
