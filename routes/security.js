@@ -16,7 +16,7 @@ router.post("/login", (req, res) => {
             if ( user === undefined) {
                 return res.status(401).send('Usuario no Existe');
             }
-            if (body.contrasena === user.contrasena) { // contrasena
+            if (body.password === user.password) { // contrasena
                 const token = jwt.sign({_id: user.id }, 'secret', { expiresIn: '10m' });
                 return res.status(200).json({token});
             } else {
