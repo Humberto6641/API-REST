@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
     mysqlConnection.query("select * from usuario where nombre = ?" , body.userName, (err, rows, field) => {
         if (!err) {
             _usuario = rows[0];
-            if (user === undefined) {
+            if ( _usuario === undefined) {
                 return res.status(401).send('Usuario no Existe');
             }
             if (body.password === _usuario.password) {
