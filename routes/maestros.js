@@ -31,7 +31,7 @@ router.get('/maestros/:id', security,(req,res)=>{
     })
 });
 
-router.post('/maestros', security,(req,res)=>{
+router.post('/maestros', (req,res)=>{
     console.log('Insert maestros')
     let emp=req.body;
     console.log(emp);
@@ -47,7 +47,7 @@ router.post('/maestros', security,(req,res)=>{
     })
 });
 
-router.put('/maestros/:id',security,(req,res)=>{
+router.put('/maestros/:id',(req,res)=>{
     console.log('Update maestros')
     let emp=req.body;
     mysqlConnection.query('update docente set id_persona = ?, fecha_ingreso = ? where id = ?',
@@ -62,7 +62,7 @@ router.put('/maestros/:id',security,(req,res)=>{
     })
 });
 
-router.delete('/maestros/:id', security,(req,res)=>{
+router.delete('/maestros/:id', (req,res)=>{
     console.log('Delete maestro')
     mysqlConnection.query('delete from docente where id = ?',[req.params.id],(err,result)=>{
         if(!err){
